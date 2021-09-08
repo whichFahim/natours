@@ -825,6 +825,7 @@ body {
   z-index: 15;
   opacity: 0;
   width: 0;
+  pointer-events: none;
   transition: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6); }
 
 .navigation__list {
@@ -834,7 +835,14 @@ body {
   transform: translate(-50%, -50%);
   list-style: none;
   text-align: center;
-  width: 100%; }
+  width: 100%;
+  /*  making the display:none still makes the nav elements clickable
+            setting pointer events to none fixes this
+            by default: none
+            when navigation button is clicked: all
+            pointer-events: none;
+            pointer-events: all;
+        */ }
 
 .navigation__item {
   margin: 1rem; }
@@ -864,7 +872,8 @@ body {
 
 .navigation__checkbox:checked ~ .navigation__nav {
   opacity: 1;
-  width: 100%; }
+  width: 100%;
+  pointer-events: all; }
 
 .navigation__icon {
   position: relative;
